@@ -1,0 +1,21 @@
+<div class="d-flex justify-content-center p-4 fw-bold">Results</div>
+<div class="quizContainer">
+    <div *ngFor="let data of quizObjQesAns; index as i">
+        <p class="d-flex flex-row justify-content-start mt-2">{{data.question}}</p>
+        <div class="d-flex flex-row justify-content-start">
+            <div class="me-2" *ngFor="let choice of data.choice; index as j">
+                <button type="button" class="btn btn-outline-success"
+                    [ngClass]="{correctAns: choice.correctAns ,inCorrectAns: choice.inCorrectAns}">{{choice.option}}</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="d-flex justify-content-center w-100 mt-4">
+<p class="d-flex justify-content-center w-25"
+    [ngClass]="{noAns: totalCorrectAns<2,fewAns:(totalCorrectAns>=2&&totalCorrectAns<4),moreAns:(totalCorrectAns>=4)}">
+    You Scored {{totalCorrectAns}} Out of {{this.quizObjQesAns.length}}</p>
+</div>
+<div class="d-flex justify-content-center w-100">
+<button class="btn btn-secondary w-50" [routerLink]="['']"
+    routerLinkActive="router-link-active">Retake Quiz</button>
+</div>

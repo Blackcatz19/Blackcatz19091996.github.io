@@ -1,0 +1,47 @@
+.correctAns {
+    background-color: green;
+    color: white;
+}
+
+.inCorrectAns {
+    background-color: red;
+    color: white;
+}
+.correctAns:hover {
+    background-color: green !important;
+    color: white !important;
+}
+.inCorrectAns {
+    background-color: red !important;
+    color: white !important;
+}
+
+.btn-outline-success {
+    cursor: default;
+}
+
+.noAns {
+    background-color: red;
+    color: white;
+}
+
+.fewAns {
+    background-color: yellow;
+    color: black;
+}
+
+.moreAns {
+    background-color: green;
+    color: white;
+}
+
+.quizContainer {
+    width: 100%;
+    max-width: 50%;
+    margin: 0 auto;
+}
+.btn-outline-success:hover{
+    background-color: white;
+    border-color: green;
+    color: green;
+}

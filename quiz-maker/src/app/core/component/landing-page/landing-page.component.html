@@ -1,0 +1,30 @@
+<div class="d-flex justify-content-center p-4 fw-bold">QuizMaker</div>
+<div class="d-flex justify-content-center">
+    <select id="categorySelect" class="form-select w-25 me-2" [(ngModel)]="selectedCategoryOptions">
+        <option value="">Select a category</option>
+        <option *ngFor="let item of categoryObj" [value]="item.id">{{item.name}}</option>
+    </select>
+    <select id="difficultySelect" class="form-select w-25 me-2" [(ngModel)]="selectedDifficultyOptions">
+        <option value="">Select a Difficullty</option>
+        <option *ngFor="let item of difficultyLvl" [value]="item">{{item}}</option>
+    </select>
+    <button id="createBtn" class="btn btn-primary" (click)="createQuiz()">Create</button>
+</div>
+<div class="quizContainer">
+    <ng-container *ngIf="responseCode===0">
+        <div *ngFor="let data of quizObjQesAns; index as i">
+            <p class="d-flex flex-row justify-content-start mt-2">{{data.question}}</p>
+            <div class="d-flex flex-row justify-content-start">
+                <div class="me-2" *ngFor="let choice of data.choice; index as j">
+                    <button type="button" class="btn btn-outline-success"
+                        (click)="selectedAnswer(i,data.id,choice.option)"
+                        [ngClass]="{selectColor: choice.isActive}">{{choice.option}}</button>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+</div>
+<div class="d-flex justify-content-center mt-4 w-100 ">
+    <button type="button" class="btn btn-secondary w-50" *ngIf="isAllQuizAnsSelected"
+        (click)="submitQuiz()">Submit</button>
+</div>
